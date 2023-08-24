@@ -1,0 +1,38 @@
+#clock {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(29, 29, 80);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #clock-container {
+    border: 2px solid rgb(34, 211, 241);
+    width: 30%;
+    height: 15%;
+    color: rgb(210, 33, 208);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 10px 1px rgb(34, 211, 241);
+    border-radius: 5px;
+  }
+  #clock-container span {
+    font-size: 3.5rem;
+    letter-spacing: 0.5rem;
+    cursor: default;
+  }
+  .clock-controller {
+    width: 30%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .clock-controller img {
+    width: 2rem;
+  }
+  #play {
+    display: none;
+  }
