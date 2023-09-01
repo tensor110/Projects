@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-size: 100vw 100vh;
+}
+.wish{
+    height: 10rem;
+    width: 10rem;
+}
+#wishes{
+    font-size: 5rem;
+}
