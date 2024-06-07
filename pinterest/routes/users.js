@@ -12,13 +12,24 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
   },
+  posts: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Post"
+  }],
+  dp: {
+    type: String,
+  },
   email: {
     type: String,
+    required: true,
     unique: true,
   },
   fullname: {
     type: String,
+    required: true,
   },
+}, {
+  timestamps: true, // Adds createdAt and updatedAt timestamps
 });
 
 userSchema.plugin(plm)
