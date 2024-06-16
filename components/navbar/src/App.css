@@ -1,3 +1,23 @@
 .active{
+  padding: 4px 0px;
   border-bottom: 1px solid #dbeafe;
+}
+.hover-effect, .active {
+  position: relative;
+  padding: 4px 0;
+}
+.hover-effect::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background-color: white;
+  transition: width 300ms ease-in-out, left 300ms ease-in-out;
+}
+
+.hover-effect:hover::after {
+  width: 140%;
+  left: -20%;
 }
