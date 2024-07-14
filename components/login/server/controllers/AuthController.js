@@ -33,9 +33,6 @@ const signin = async (req,res)=>{
         const {username, password} = req.body
         const user = await UserModel.findOne({username})
         const errorMsg = 'Email or password wrong'
-        if(user){
-            console.log('User found')
-        }
         if(!user){
             return res.status(403)
                 .json({message: errorMsg, success: false})
@@ -45,24 +42,18 @@ const signin = async (req,res)=>{
             return res.status(403)
                 .json({message: errorMsg, success: false})
         }
-
-        if (!process.env.SECRET_KEY) {
-            console.error("SECRET_KEY is not defined in environment variables");
-            return res.status(500).json({ message: "Internal server error", success: false });
-          }
-
         const jwtToken = jwt.sign(
             {username: user.username, _id: user._id},
             process.env.SECRET_KEY,
-            {expiresIn: '24h'}
+            {expiresIn: '72h'}
         )
         res.status(200)
             .json({
                 message: 'Signin Successfully',
                 success: true,
                 jwtToken,
-                email,
-                username: user.username
+                username,
+                email: user.email
             })
     }
     catch(err){

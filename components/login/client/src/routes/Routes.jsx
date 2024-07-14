@@ -5,6 +5,7 @@ import Login from '../screens/Login'
 import Signup from '../screens/Signup';
 import ForgotPassword from '../screens/ForgotPassword';
 import ResetPassword from '../screens/ResetPassword';
+import Profile from '../screens/Profile';
 
 function Routes() {
   const routes = useRoutes([
@@ -13,6 +14,7 @@ function Routes() {
     { path: 'signup', element: <Signup /> },
     { path: 'forgot-password', element: <ForgotPassword /> },
     { path: 'reset-password', element: <ResetPassword /> },
+    { path: 'profile', element: <Profile/> },
   ]);
 
   return routes;
