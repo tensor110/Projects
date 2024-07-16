@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ProfilePic from "../assets/profile.png";
+import {handleError} from '../utils'
+// import axios from "axios";
 
 function Profile() {
   const [loggedInUser, setLoggedInUser] = useState("");
   const [profilePic, setProfilePic] = useState(ProfilePic);
+  const [products, setProducts] = useState([])
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -25,6 +28,27 @@ function Profile() {
       navigate("/login");
     });
   };
+
+  const fetchProducts = async() =>{
+    try{
+      const url = 'http://localhost:8080/products'
+      const headers = {
+        headers: {
+          'Authorization': localStorage.getItem('token')
+        }
+      }
+      const response = await fetch(url, headers)
+      const result = await response.json()
+      setProducts(result)
+    }
+    catch(err){
+      handleError(err)
+    }
+  }
+  useEffect(()=>{
+    fetchProducts()
+  },[])
+
   return (
     <div className="flex flex-col justify-center mt-10 gap-16">
       <div className="flex justify-center">
@@ -57,8 +81,17 @@ function Profile() {
             </label>
           </form>
         </div>
-        <div>
-          <h2>{loggedInUser}User</h2>
+        <div className="flex flex-col">
+          <h2>@{loggedInUser}</h2>
+          <div>
+            {
+              products.map((item, index) =>(
+                <ul key ={index}>
+                  <span>{item.name} : {item.price}</span>
+                </ul>
+              )
+            )}
+          </div>
         </div>
       </section>
       <div className="flex justify-center">
