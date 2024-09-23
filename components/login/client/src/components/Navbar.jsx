@@ -8,12 +8,12 @@ function Navbar() {
   const logo = useRef();
   const [loggedInUser, setLoggedInUser] = useState(false);
 
-  useEffect(() => {
-    const user = localStorage.getItem("loggedInUser");
-    if (user) {
-      setLoggedInUser(true);
-    }
-  }, []);
+    useEffect(() => {
+      const user = localStorage.getItem("loggedInUser");
+      if (user) {
+        setLoggedInUser(true);
+      }
+    }, []);
 
   return (
     <nav className="md:w-full lg:px-8 md: px-4 py-4 flex justify-between items-center bg-gray-900 text-white overflow-x-hidden">

@@ -7,7 +7,7 @@ import Signup from '../screens/Signup';
 import ForgotPassword from '../screens/ForgotPassword';
 import ResetPassword from '../screens/ResetPassword';
 import Profile from '../screens/Profile';
-import RefrshHandler from './RefreshHandler';
+import RefreshHandler from './RefreshHandler';
 
 function Routees() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -17,7 +17,7 @@ function Routees() {
   }
   return (
     <div>
-      <RefrshHandler setIsAuthenticated={setIsAuthenticated} />
+      <RefreshHandler setIsAuthenticated={setIsAuthenticated} />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
